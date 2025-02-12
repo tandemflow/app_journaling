@@ -53,11 +53,18 @@ struct ContentView: View {
             VStack {
                 Spacer() // Pushes content to top
                 
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.white)
-                Text("Hello, world!")
-                    .foregroundColor(.white)
+                if let image = capturedImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxHeight: 300)
+                } else {
+                    Image(systemName: "globe")
+                        .imageScale(.large)
+                        .foregroundStyle(.white)
+                    Text("Hello, world!")
+                        .foregroundColor(.white)
+                }
                 
                 Spacer() // Creates space before button
                 

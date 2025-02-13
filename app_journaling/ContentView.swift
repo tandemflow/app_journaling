@@ -15,7 +15,22 @@ struct ImagePicker: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
-        picker.sourceType = .camera
+        
+        // Check if camera is available before trying to use it
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .camera
+            
+            // Configure camera settings
+            picker.cameraCaptureMode = .photo
+            picker.modalPresentationStyle = .fullScreen
+            
+            // Don't specify device - let system choose the best available camera
+            // This prevents the "unsupported device" warning
+        } else {
+            // Fallback to photo library if camera is not available
+            picker.sourceType = .photoLibrary
+        }
+        
         return picker
     }
     

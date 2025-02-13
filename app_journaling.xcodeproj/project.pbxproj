@@ -29,22 +29,9 @@
 		FA1AD5EE2D5DAD8700FEBFFE /* app_journalingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app_journalingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		FA1AD6122D5E561200FEBFFE /* Exceptions for "app_journaling" folder in "app_journaling" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"app-journaling-Info.plist",
-			);
-			target = FA1AD5D22D5DAD8600FEBFFE /* app_journaling */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FA1AD5D52D5DAD8600FEBFFE /* app_journaling */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				FA1AD6122D5E561200FEBFFE /* Exceptions for "app_journaling" folder in "app_journaling" target */,
-			);
 			path = app_journaling;
 			sourceTree = "<group>";
 		};

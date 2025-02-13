@@ -9,13 +9,38 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            // Keep existing dark background
+            Color(red: 0.1, green: 0.1, blue: 0.1)
+                .ignoresSafeArea()
+            
+            VStack {
+                // Existing content
+                VStack {
+                    Image(systemName: "globe")
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
+                    Text("Hello, world!")
+                }
+                .padding()
+                
+                Spacer() // Push button to bottom
+                
+                // Add plus button
+                Button(action: {
+                    // Action here
+                }) {
+                    Image(systemName: "plus")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .frame(width: 60, height: 60)
+                        .background(Color.accentColor)
+                        .clipShape(Circle())
+                        .shadow(radius: 4)
+                }
+                .padding(.bottom, 20) // Add space from bottom
+            }
         }
-        .padding()
     }
 }
 

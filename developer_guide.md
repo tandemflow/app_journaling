@@ -22,7 +22,7 @@ Application for doing data analysis on Wikipedia articles.
 
 ## Project Architecture
 - .aider.tags.cache.v3
-- app_journaling
+- app_journaling  
   - app_journaling
   - app_journaling.xcodeproj
   - app_journalingTests
@@ -61,3 +61,4 @@ Application for doing data analysis on Wikipedia articles.
   - Validate all inputs
   - Sanitize outputs
   - Use environment variables for sensitive data
+  

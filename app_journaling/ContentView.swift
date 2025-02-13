@@ -6,8 +6,49 @@
 //
 
 import SwiftUI
+import UIKit
+
+struct ImagePicker: UIViewControllerRepresentable {
+    @Binding var isShown: Bool
+    @Binding var image: UIImage?
+    
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        picker.sourceType = .camera
+        return picker
+    }
+    
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        let parent: ImagePicker
+        
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let image = info[.originalImage] as? UIImage {
+                parent.image = image
+            }
+            parent.isShown = false
+        }
+        
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            parent.isShown = false
+        }
+    }
+}
 
 struct ContentView: View {
+    @State private var showingImagePicker = false
+    @State private var capturedImage: UIImage?
+    
     var body: some View {
         ZStack {
             // Keep existing dark background
@@ -30,7 +71,7 @@ struct ContentView: View {
                 
                 // Add plus button
                 Button(action: {
-                    // Action here
+                    showingImagePicker = true
                 }) {
                     Image(systemName: "plus")
                         .font(.title2)
@@ -42,6 +83,9 @@ struct ContentView: View {
                 }
                 .padding(.bottom, 20) // Add space from bottom
             }
+        }
+        .sheet(isPresented: $showingImagePicker) {
+            ImagePicker(isShown: $showingImagePicker, image: $capturedImage)
         }
     }
 }

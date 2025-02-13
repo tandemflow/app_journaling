@@ -2,9 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!-- Correct Photo Library Access -->
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need photo library access to select images for text extraction.</string>
-	<key>NSCalendarsUsageDescription</key>
+
+	<!-- Add Camera Permission (Fix the Incorrect Key) -->
+	<key>NSCameraUsageDescription</key>
 	<string>We need camera access to capture images for text extraction.</string>
+
+	<!-- (Optional) Add Photo Library Write Access -->
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We need access to save images to your photo library.</string>
 </dict>
 </plist>

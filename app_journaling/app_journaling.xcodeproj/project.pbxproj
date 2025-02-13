@@ -7,40 +7,40 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		FA5D546B2D5D364700B28F53 /* PBXContainerItemProxy */ = {
+		FA9042DA2D5DAB0800E890AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FA5D54512D5D364600B28F53 /* Project object */;
+			containerPortal = FA9042C02D5DAB0700E890AD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FA5D54582D5D364600B28F53;
+			remoteGlobalIDString = FA9042C72D5DAB0700E890AD;
 			remoteInfo = app_journaling;
 		};
-		FA5D54752D5D364700B28F53 /* PBXContainerItemProxy */ = {
+		FA9042E42D5DAB0800E890AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FA5D54512D5D364600B28F53 /* Project object */;
+			containerPortal = FA9042C02D5DAB0700E890AD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FA5D54582D5D364600B28F53;
+			remoteGlobalIDString = FA9042C72D5DAB0700E890AD;
 			remoteInfo = app_journaling;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA5D54592D5D364600B28F53 /* app_journaling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app_journaling.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA5D546A2D5D364700B28F53 /* app_journalingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app_journalingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA5D54742D5D364700B28F53 /* app_journalingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app_journalingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA9042C82D5DAB0700E890AD /* app_journaling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app_journaling.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA9042D92D5DAB0800E890AD /* app_journalingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app_journalingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA9042E32D5DAB0800E890AD /* app_journalingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app_journalingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FA5D545B2D5D364600B28F53 /* app_journaling */ = {
+		FA9042CA2D5DAB0700E890AD /* app_journaling */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = app_journaling;
 			sourceTree = "<group>";
 		};
-		FA5D546D2D5D364700B28F53 /* app_journalingTests */ = {
+		FA9042DC2D5DAB0800E890AD /* app_journalingTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = app_journalingTests;
 			sourceTree = "<group>";
 		};
-		FA5D54772D5D364700B28F53 /* app_journalingUITests */ = {
+		FA9042E62D5DAB0800E890AD /* app_journalingUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = app_journalingUITests;
 			sourceTree = "<group>";
@@ -48,21 +48,21 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FA5D54562D5D364600B28F53 /* Frameworks */ = {
+		FA9042C52D5DAB0700E890AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA5D54672D5D364700B28F53 /* Frameworks */ = {
+		FA9042D62D5DAB0800E890AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA5D54712D5D364700B28F53 /* Frameworks */ = {
+		FA9042E02D5DAB0800E890AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,22 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA5D54502D5D364600B28F53 = {
+		FA9042BF2D5DAB0700E890AD = {
 			isa = PBXGroup;
 			children = (
-				FA5D545B2D5D364600B28F53 /* app_journaling */,
-				FA5D546D2D5D364700B28F53 /* app_journalingTests */,
-				FA5D54772D5D364700B28F53 /* app_journalingUITests */,
-				FA5D545A2D5D364600B28F53 /* Products */,
+				FA9042CA2D5DAB0700E890AD /* app_journaling */,
+				FA9042DC2D5DAB0800E890AD /* app_journalingTests */,
+				FA9042E62D5DAB0800E890AD /* app_journalingUITests */,
+				FA9042C92D5DAB0700E890AD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FA5D545A2D5D364600B28F53 /* Products */ = {
+		FA9042C92D5DAB0700E890AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA5D54592D5D364600B28F53 /* app_journaling.app */,
-				FA5D546A2D5D364700B28F53 /* app_journalingTests.xctest */,
-				FA5D54742D5D364700B28F53 /* app_journalingUITests.xctest */,
+				FA9042C82D5DAB0700E890AD /* app_journaling.app */,
+				FA9042D92D5DAB0800E890AD /* app_journalingTests.xctest */,
+				FA9042E32D5DAB0800E890AD /* app_journalingUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,134 +95,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA5D54582D5D364600B28F53 /* app_journaling */ = {
+		FA9042C72D5DAB0700E890AD /* app_journaling */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA5D547E2D5D364700B28F53 /* Build configuration list for PBXNativeTarget "app_journaling" */;
+			buildConfigurationList = FA9042ED2D5DAB0800E890AD /* Build configuration list for PBXNativeTarget "app_journaling" */;
 			buildPhases = (
-				FA5D54552D5D364600B28F53 /* Sources */,
-				FA5D54562D5D364600B28F53 /* Frameworks */,
-				FA5D54572D5D364600B28F53 /* Resources */,
+				FA9042C42D5DAB0700E890AD /* Sources */,
+				FA9042C52D5DAB0700E890AD /* Frameworks */,
+				FA9042C62D5DAB0700E890AD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				FA5D545B2D5D364600B28F53 /* app_journaling */,
+				FA9042CA2D5DAB0700E890AD /* app_journaling */,
 			);
 			name = app_journaling;
 			packageProductDependencies = (
 			);
 			productName = app_journaling;
-			productReference = FA5D54592D5D364600B28F53 /* app_journaling.app */;
+			productReference = FA9042C82D5DAB0700E890AD /* app_journaling.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FA5D54692D5D364700B28F53 /* app_journalingTests */ = {
+		FA9042D82D5DAB0800E890AD /* app_journalingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA5D54812D5D364700B28F53 /* Build configuration list for PBXNativeTarget "app_journalingTests" */;
+			buildConfigurationList = FA9042F02D5DAB0800E890AD /* Build configuration list for PBXNativeTarget "app_journalingTests" */;
 			buildPhases = (
-				FA5D54662D5D364700B28F53 /* Sources */,
-				FA5D54672D5D364700B28F53 /* Frameworks */,
-				FA5D54682D5D364700B28F53 /* Resources */,
+				FA9042D52D5DAB0800E890AD /* Sources */,
+				FA9042D62D5DAB0800E890AD /* Frameworks */,
+				FA9042D72D5DAB0800E890AD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FA5D546C2D5D364700B28F53 /* PBXTargetDependency */,
+				FA9042DB2D5DAB0800E890AD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				FA5D546D2D5D364700B28F53 /* app_journalingTests */,
+				FA9042DC2D5DAB0800E890AD /* app_journalingTests */,
 			);
 			name = app_journalingTests;
 			packageProductDependencies = (
 			);
 			productName = app_journalingTests;
-			productReference = FA5D546A2D5D364700B28F53 /* app_journalingTests.xctest */;
+			productReference = FA9042D92D5DAB0800E890AD /* app_journalingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FA5D54732D5D364700B28F53 /* app_journalingUITests */ = {
+		FA9042E22D5DAB0800E890AD /* app_journalingUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA5D54842D5D364700B28F53 /* Build configuration list for PBXNativeTarget "app_journalingUITests" */;
+			buildConfigurationList = FA9042F32D5DAB0800E890AD /* Build configuration list for PBXNativeTarget "app_journalingUITests" */;
 			buildPhases = (
-				FA5D54702D5D364700B28F53 /* Sources */,
-				FA5D54712D5D364700B28F53 /* Frameworks */,
-				FA5D54722D5D364700B28F53 /* Resources */,
+				FA9042DF2D5DAB0800E890AD /* Sources */,
+				FA9042E02D5DAB0800E890AD /* Frameworks */,
+				FA9042E12D5DAB0800E890AD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FA5D54762D5D364700B28F53 /* PBXTargetDependency */,
+				FA9042E52D5DAB0800E890AD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				FA5D54772D5D364700B28F53 /* app_journalingUITests */,
+				FA9042E62D5DAB0800E890AD /* app_journalingUITests */,
 			);
 			name = app_journalingUITests;
 			packageProductDependencies = (
 			);
 			productName = app_journalingUITests;
-			productReference = FA5D54742D5D364700B28F53 /* app_journalingUITests.xctest */;
+			productReference = FA9042E32D5DAB0800E890AD /* app_journalingUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FA5D54512D5D364600B28F53 /* Project object */ = {
+		FA9042C02D5DAB0700E890AD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					FA5D54582D5D364600B28F53 = {
+					FA9042C72D5DAB0700E890AD = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					FA5D54692D5D364700B28F53 = {
+					FA9042D82D5DAB0800E890AD = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = FA5D54582D5D364600B28F53;
+						TestTargetID = FA9042C72D5DAB0700E890AD;
 					};
-					FA5D54732D5D364700B28F53 = {
+					FA9042E22D5DAB0800E890AD = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = FA5D54582D5D364600B28F53;
+						TestTargetID = FA9042C72D5DAB0700E890AD;
 					};
 				};
 			};
-			buildConfigurationList = FA5D54542D5D364600B28F53 /* Build configuration list for PBXProject "app_journaling" */;
+			buildConfigurationList = FA9042C32D5DAB0700E890AD /* Build configuration list for PBXProject "app_journaling" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = FA5D54502D5D364600B28F53;
+			mainGroup = FA9042BF2D5DAB0700E890AD;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = FA5D545A2D5D364600B28F53 /* Products */;
+			productRefGroup = FA9042C92D5DAB0700E890AD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA5D54582D5D364600B28F53 /* app_journaling */,
-				FA5D54692D5D364700B28F53 /* app_journalingTests */,
-				FA5D54732D5D364700B28F53 /* app_journalingUITests */,
+				FA9042C72D5DAB0700E890AD /* app_journaling */,
+				FA9042D82D5DAB0800E890AD /* app_journalingTests */,
+				FA9042E22D5DAB0800E890AD /* app_journalingUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FA5D54572D5D364600B28F53 /* Resources */ = {
+		FA9042C62D5DAB0700E890AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA5D54682D5D364700B28F53 /* Resources */ = {
+		FA9042D72D5DAB0800E890AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA5D54722D5D364700B28F53 /* Resources */ = {
+		FA9042E12D5DAB0800E890AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,21 +232,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FA5D54552D5D364600B28F53 /* Sources */ = {
+		FA9042C42D5DAB0700E890AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA5D54662D5D364700B28F53 /* Sources */ = {
+		FA9042D52D5DAB0800E890AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA5D54702D5D364700B28F53 /* Sources */ = {
+		FA9042DF2D5DAB0800E890AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,20 +256,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FA5D546C2D5D364700B28F53 /* PBXTargetDependency */ = {
+		FA9042DB2D5DAB0800E890AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FA5D54582D5D364600B28F53 /* app_journaling */;
-			targetProxy = FA5D546B2D5D364700B28F53 /* PBXContainerItemProxy */;
+			target = FA9042C72D5DAB0700E890AD /* app_journaling */;
+			targetProxy = FA9042DA2D5DAB0800E890AD /* PBXContainerItemProxy */;
 		};
-		FA5D54762D5D364700B28F53 /* PBXTargetDependency */ = {
+		FA9042E52D5DAB0800E890AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FA5D54582D5D364600B28F53 /* app_journaling */;
-			targetProxy = FA5D54752D5D364700B28F53 /* PBXContainerItemProxy */;
+			target = FA9042C72D5DAB0700E890AD /* app_journaling */;
+			targetProxy = FA9042E42D5DAB0800E890AD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		FA5D547C2D5D364700B28F53 /* Debug */ = {
+		FA9042EB2D5DAB0800E890AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -330,7 +330,7 @@
 			};
 			name = Debug;
 		};
-		FA5D547D2D5D364700B28F53 /* Release */ = {
+		FA9042EC2D5DAB0800E890AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -383,7 +383,7 @@
 			};
 			name = Release;
 		};
-		FA5D547F2D5D364700B28F53 /* Debug */ = {
+		FA9042EE2D5DAB0800E890AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -422,7 +422,7 @@
 			};
 			name = Debug;
 		};
-		FA5D54802D5D364700B28F53 /* Release */ = {
+		FA9042EF2D5DAB0800E890AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -461,7 +461,7 @@
 			};
 			name = Release;
 		};
-		FA5D54822D5D364700B28F53 /* Debug */ = {
+		FA9042F12D5DAB0800E890AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,7 +484,7 @@
 			};
 			name = Debug;
 		};
-		FA5D54832D5D364700B28F53 /* Release */ = {
+		FA9042F22D5DAB0800E890AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -507,7 +507,7 @@
 			};
 			name = Release;
 		};
-		FA5D54852D5D364700B28F53 /* Debug */ = {
+		FA9042F42D5DAB0800E890AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -529,7 +529,7 @@
 			};
 			name = Debug;
 		};
-		FA5D54862D5D364700B28F53 /* Release */ = {
+		FA9042F52D5DAB0800E890AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -554,43 +554,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA5D54542D5D364600B28F53 /* Build configuration list for PBXProject "app_journaling" */ = {
+		FA9042C32D5DAB0700E890AD /* Build configuration list for PBXProject "app_journaling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA5D547C2D5D364700B28F53 /* Debug */,
-				FA5D547D2D5D364700B28F53 /* Release */,
+				FA9042EB2D5DAB0800E890AD /* Debug */,
+				FA9042EC2D5DAB0800E890AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA5D547E2D5D364700B28F53 /* Build configuration list for PBXNativeTarget "app_journaling" */ = {
+		FA9042ED2D5DAB0800E890AD /* Build configuration list for PBXNativeTarget "app_journaling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA5D547F2D5D364700B28F53 /* Debug */,
-				FA5D54802D5D364700B28F53 /* Release */,
+				FA9042EE2D5DAB0800E890AD /* Debug */,
+				FA9042EF2D5DAB0800E890AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA5D54812D5D364700B28F53 /* Build configuration list for PBXNativeTarget "app_journalingTests" */ = {
+		FA9042F02D5DAB0800E890AD /* Build configuration list for PBXNativeTarget "app_journalingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA5D54822D5D364700B28F53 /* Debug */,
-				FA5D54832D5D364700B28F53 /* Release */,
+				FA9042F12D5DAB0800E890AD /* Debug */,
+				FA9042F22D5DAB0800E890AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA5D54842D5D364700B28F53 /* Build configuration list for PBXNativeTarget "app_journalingUITests" */ = {
+		FA9042F32D5DAB0800E890AD /* Build configuration list for PBXNativeTarget "app_journalingUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA5D54852D5D364700B28F53 /* Debug */,
-				FA5D54862D5D364700B28F53 /* Release */,
+				FA9042F42D5DAB0800E890AD /* Debug */,
+				FA9042F52D5DAB0800E890AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FA5D54512D5D364600B28F53 /* Project object */;
+	rootObject = FA9042C02D5DAB0700E890AD /* Project object */;
 }

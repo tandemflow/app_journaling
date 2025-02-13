@@ -15,7 +15,9 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack {
-                // Existing content
+                Spacer() // Add spacer to push content to center
+                
+                // Center content
                 VStack {
                     Image(systemName: "globe")
                         .imageScale(.large)
@@ -24,7 +26,7 @@ struct ContentView: View {
                 }
                 .padding()
                 
-                Spacer() // Push button to bottom
+                Spacer() // Add spacer to maintain center position
                 
                 // Add plus button
                 Button(action: {

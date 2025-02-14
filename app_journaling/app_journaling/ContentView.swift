@@ -29,16 +29,15 @@ struct ContentView: View {
                 .clipShape(Circle())
                 .padding(.bottom, 30)
                 .confirmationDialog("Add Photo", isPresented: $showingMediaOptions) {
+                    PhotosPicker(selection: $selectedItems,
+                               matching: .images,
+                               photoLibrary: .shared()) {
+                        Text("Choose from Library")
+                    }
                     Button("Take Photo") {
                         // Camera will be implemented later
                     }
                 }
-            }
-            
-            PhotosPicker(selection: $selectedItems,
-                        matching: .images,
-                        photoLibrary: .shared()) {
-                Text("Choose from Library")
             }
             .onChange(of: selectedItems) { oldItems, newItems in
                 Task {

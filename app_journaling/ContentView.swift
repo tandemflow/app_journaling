@@ -19,8 +19,14 @@ struct ImagePicker: UIViewControllerRepresentable {
         picker.sourceType = sourceType
         
         // Configure camera settings
-        picker.cameraCaptureMode = .photo
-        picker.modalPresentationStyle = .fullScreen
+        if sourceType == .camera {
+            picker.modalPresentationStyle = .fullScreen
+            
+            // Basic photo configuration without specific device settings
+            picker.cameraCaptureMode = .photo
+            picker.cameraDevice = .rear // Use default rear camera
+            picker.cameraFlashMode = .auto
+        }
         
         return picker
     }

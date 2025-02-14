@@ -13,10 +13,43 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     let sourceType: UIImagePickerController.SourceType
     
+    // Add configuration options
+    var allowsEditing: Bool = false
+    var cameraDevice: UIImagePickerController.CameraDevice = .rear
+    var cameraCaptureMode: UIImagePickerController.CameraCaptureMode = .photo
+    var cameraFlashMode: UIImagePickerController.CameraFlashMode = .auto
+    var imageExportPreset: UIImagePickerController.ImageURLExportPreset = .compatible
+    var videoQuality: UIImagePickerController.QualityType = .typeMedium
+    var videoMaximumDuration: TimeInterval = 600 // 10 minutes default
+    
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
         picker.sourceType = sourceType
+        picker.allowsEditing = allowsEditing
+        
+        if sourceType == .camera {
+            // Check camera availability and set fallback
+            if UIImagePickerController.isCameraDeviceAvailable(cameraDevice) {
+                picker.cameraDevice = cameraDevice
+            } else if UIImagePickerController.isCameraDeviceAvailable(.rear) {
+                picker.cameraDevice = .rear
+            } else if UIImagePickerController.isCameraDeviceAvailable(.front) {
+                picker.cameraDevice = .front
+            }
+            
+            // Basic camera configuration
+            picker.cameraCaptureMode = cameraCaptureMode
+            picker.cameraFlashMode = cameraFlashMode
+            picker.modalPresentationStyle = .fullScreen
+            
+            // Video specific settings if needed
+            if cameraCaptureMode == .video {
+                picker.videoQuality = videoQuality
+                picker.videoMaximumDuration = videoMaximumDuration
+            }
+        }
+        
         return picker
     }
     
@@ -34,8 +67,12 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let image = info[.originalImage] as? UIImage {
-                parent.image = image
+            if parent.allowsEditing {
+                if let editedImage = info[.editedImage] as? UIImage {
+                    parent.image = editedImage
+                }
+            } else if let originalImage = info[.originalImage] as? UIImage {
+                parent.image = originalImage
             }
             parent.isShown = false
         }
@@ -99,9 +136,14 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showingImagePicker) {
-            ImagePicker(isShown: $showingImagePicker, 
+            ImagePicker(isShown: $showingImagePicker,
                        image: $capturedImage,
-                       sourceType: sourceType)
+                       sourceType: sourceType,
+                       allowsEditing: true,
+                       cameraDevice: .rear,
+                       cameraCaptureMode: .photo,
+                       cameraFlashMode: .auto,
+                       videoQuality: .typeHigh)
         }
     }
 }

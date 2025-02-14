@@ -10,6 +10,8 @@ import PhotosUI
 
 struct ContentView: View {
     @State private var showingMediaOptions = false
+    @State private var selectedItems: [PhotosPickerItem] = []
+    @State private var imageDataArray: [ImageData] = []
     
     var body: some View {
         ZStack {
@@ -27,11 +29,24 @@ struct ContentView: View {
                 .clipShape(Circle())
                 .padding(.bottom, 30)
                 .confirmationDialog("Add Photo", isPresented: $showingMediaOptions) {
-                    Button("Choose from Library") {
-                        // Photo picker will be implemented later
+                    PhotosPicker(selection: $selectedItems,
+                               matching: .images,
+                               photoLibrary: .shared()) {
+                        Text("Choose from Library")
                     }
                     Button("Take Photo") {
                         // Camera will be implemented later
+                    }
+                }
+                .onChange(of: selectedItems) { newItems in
+                    Task {
+                        for item in newItems {
+                            if let data = try? await item.loadTransferable(type: Data.self),
+                               let image = UIImage(data: data) {
+                                let imageData = ImageData(image: image)
+                                imageDataArray.append(imageData)
+                            }
+                        }
                     }
                 }
             }

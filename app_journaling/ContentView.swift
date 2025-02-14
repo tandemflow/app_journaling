@@ -9,16 +9,18 @@ import SwiftUI
 import UIKit
 
 struct ImagePicker: UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+        <#code#>
+    }
+    
     @Binding var isShown: Bool
     @Binding var image: UIImage?
+    let sourceType: UIImagePickerController.SourceType
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
-        
-        // Check if camera is available before trying to use it
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            picker.sourceType = .camera
+        picker.sourceType = sourceType
             
             // Configure camera settings
             picker.cameraCaptureMode = .photo
@@ -26,7 +28,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             
             // Don't specify device - let system choose the best available camera
             // This prevents the "unsupported device" warning
-        } else {
+    }; else {
             // Fallback to photo library if camera is not available
             picker.sourceType = .photoLibrary
         }
@@ -58,11 +60,13 @@ struct ImagePicker: UIViewControllerRepresentable {
             parent.isShown = false
         }
     }
-}
+
 
 struct ContentView: View {
     @State private var showingImagePicker = false
+    @State private var showingSourceMenu = false
     @State private var capturedImage: UIImage?
+    @State private var sourceType: UIImagePickerController.SourceType = .camera
     
     var body: some View {
         ZStack {
@@ -86,7 +90,7 @@ struct ContentView: View {
                 
                 // Add plus button
                 Button(action: {
-                    showingImagePicker = true
+                    showingSourceMenu = true
                 }) {
                     Image(systemName: "plus")
                         .font(.title2)
@@ -99,8 +103,21 @@ struct ContentView: View {
                 .padding(.bottom, 20) // Add space from bottom
             }
         }
+        .confirmationDialog("Choose Image Source", 
+                          isPresented: $showingSourceMenu) {
+            Button("Take Photo") {
+                sourceType = .camera
+                showingImagePicker = true
+            }
+            Button("Choose from Library") {
+                sourceType = .photoLibrary
+                showingImagePicker = true
+            }
+        }
         .sheet(isPresented: $showingImagePicker) {
-            ImagePicker(isShown: $showingImagePicker, image: $capturedImage)
+            ImagePicker(isShown: $showingImagePicker, 
+                       image: $capturedImage,
+                       sourceType: sourceType)
         }
     }
 }

@@ -49,7 +49,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             parent.isShown = false
         }
     }
-
+}
 
 struct ContentView: View {
     @State private var showingImagePicker = false

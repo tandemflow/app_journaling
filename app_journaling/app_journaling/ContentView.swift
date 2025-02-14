@@ -38,7 +38,7 @@ struct ContentView: View {
                         // Camera will be implemented later
                     }
                 }
-                .onChange(of: selectedItems) { newItems in
+                .onChange(of: selectedItems) { oldItems, newItems in
                     Task {
                         for item in newItems {
                             if let data = try? await item.loadTransferable(type: Data.self),

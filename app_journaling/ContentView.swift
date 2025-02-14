@@ -9,10 +9,6 @@ import SwiftUI
 import UIKit
 
 struct ImagePicker: UIViewControllerRepresentable {
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-        <#code#>
-    }
-    
     @Binding var isShown: Bool
     @Binding var image: UIImage?
     let sourceType: UIImagePickerController.SourceType
@@ -21,20 +17,15 @@ struct ImagePicker: UIViewControllerRepresentable {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
         picker.sourceType = sourceType
-            
-            // Configure camera settings
-            picker.cameraCaptureMode = .photo
-            picker.modalPresentationStyle = .fullScreen
-            
-            // Don't specify device - let system choose the best available camera
-            // This prevents the "unsupported device" warning
-    }; else {
-            // Fallback to photo library if camera is not available
-            picker.sourceType = .photoLibrary
-        }
+        
+        // Configure camera settings
+        picker.cameraCaptureMode = .photo
+        picker.modalPresentationStyle = .fullScreen
         
         return picker
     }
+    
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
     
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
     

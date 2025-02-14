@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A view that manages photo selection and queue management
 struct PhotoSelectionView: View {
-    @StateObject private var viewModel = PhotoSelectionViewModel()
+    @ObservedObject var viewModel: PhotoSelectionViewModel
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {

@@ -17,12 +17,6 @@ struct ImagePicker: UIViewControllerRepresentable {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
         picker.sourceType = sourceType
-        
-        // Only set the presentation style for camera
-        if sourceType == .camera {
-            picker.modalPresentationStyle = .fullScreen
-        }
-        
         return picker
     }
     

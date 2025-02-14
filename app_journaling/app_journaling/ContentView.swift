@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ContentView: View {
+    @State private var showingMediaOptions = false
+    
     var body: some View {
         ZStack {
             VStack {
                 Spacer()
                 Button(action: {
-                    // Action to be added later
+                    showingMediaOptions = true
                 }) {
                     Image(systemName: "plus")
                         .font(.title)
@@ -23,6 +26,14 @@ struct ContentView: View {
                 .background(Color.blue)
                 .clipShape(Circle())
                 .padding(.bottom, 30)
+                .confirmationDialog("Add Photo", isPresented: $showingMediaOptions) {
+                    Button("Choose from Library") {
+                        // Photo picker will be implemented later
+                    }
+                    Button("Take Photo") {
+                        // Camera will be implemented later
+                    }
+                }
             }
         }
     }

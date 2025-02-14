@@ -20,7 +20,7 @@ class PhotoSelectionViewModel: ObservableObject {
     
     /// Adds a photo to the queue
     /// - Parameter image: The UIImage to add
-    private func addPhoto(_ image: UIImage) {
+    public func addPhoto(_ image: UIImage) {
         let newPhoto = PhotoItem(image: image)
         selectedPhotos.append(newPhoto)
     }

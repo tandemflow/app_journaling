@@ -9,14 +9,19 @@ import SwiftUI
 import PhotosUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = PhotoSelectionViewModel()
     @State private var showingMediaOptions = false
     @State private var showingPhotoPicker = false
     @State private var selectedItems: [PhotosPickerItem] = []
-    @State private var imageDataArray: [ImageData] = []
+    @State private var showingPhotoSelection = false
     
     var body: some View {
         ZStack {
             VStack {
+                if !viewModel.selectedPhotos.isEmpty {
+                    PhotoSelectionView(viewModel: viewModel)
+                }
+                
                 Spacer()
                 Button(action: {
                     showingMediaOptions = true
@@ -47,10 +52,13 @@ struct ContentView: View {
                     for item in newItems {
                         if let data = try? await item.loadTransferable(type: Data.self),
                            let image = UIImage(data: data) {
-                            let imageData = ImageData(image: image)
-                            imageDataArray.append(imageData)
+                            await MainActor.run {
+                                viewModel.addPhoto(image)
+                                showingPhotoSelection = true
+                            }
                         }
                     }
+                    selectedItems = []
                 }
             }
         }

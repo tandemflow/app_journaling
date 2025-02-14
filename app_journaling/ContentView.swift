@@ -18,20 +18,9 @@ struct ImagePicker: UIViewControllerRepresentable {
         picker.delegate = context.coordinator
         picker.sourceType = sourceType
         
-        // Configure camera settings
+        // Only set the presentation style for camera
         if sourceType == .camera {
             picker.modalPresentationStyle = .fullScreen
-            picker.cameraCaptureMode = .photo
-            
-            // Let system choose available camera
-            if UIImagePickerController.isCameraDeviceAvailable(.rear) {
-                picker.cameraDevice = .rear
-            }
-            
-            // Only set flash mode if device has flash
-            if UIImagePickerController.isFlashAvailable(for: .rear) {
-                picker.cameraFlashMode = .auto
-            }
         }
         
         return picker

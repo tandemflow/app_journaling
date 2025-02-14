@@ -10,6 +10,7 @@ import PhotosUI
 
 struct ContentView: View {
     @State private var showingMediaOptions = false
+    @State private var showingPhotoPicker = false
     @State private var selectedItems: [PhotosPickerItem] = []
     @State private var imageDataArray: [ImageData] = []
     
@@ -29,15 +30,17 @@ struct ContentView: View {
                 .clipShape(Circle())
                 .padding(.bottom, 30)
                 .confirmationDialog("Add Photo", isPresented: $showingMediaOptions) {
-                    PhotosPicker(selection: $selectedItems,
-                               matching: .images,
-                               photoLibrary: .shared()) {
-                        Text("Choose from Library")
+                    Button("Choose from Library") {
+                        showingPhotoPicker = true
                     }
                     Button("Take Photo") {
                         // Camera will be implemented later
                     }
                 }
+                .photosPicker(isPresented: $showingPhotoPicker,
+                            selection: $selectedItems,
+                            matching: .images,
+                            photoLibrary: .shared())
             }
             .onChange(of: selectedItems) { oldItems, newItems in
                 Task {
@@ -50,10 +53,9 @@ struct ContentView: View {
                     }
                 }
             }
-            }
         }
     }
-
+}
 
 #Preview {
     ContentView()

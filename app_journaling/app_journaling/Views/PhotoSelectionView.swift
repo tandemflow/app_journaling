@@ -4,6 +4,7 @@ import SwiftUI
 struct PhotoSelectionView: View {
     @ObservedObject var viewModel: PhotoSelectionViewModel
     @Environment(\.dismiss) private var dismiss
+    @State private var showingMediaOptions = false
     
     var body: some View {
         NavigationView {
@@ -18,7 +19,7 @@ struct PhotoSelectionView: View {
                         }
                         
                         AddMoreButton(action: {
-                            viewModel.showingMediaOptions = true
+                            showingMediaOptions = true
                         })
                     }
                     .padding()
@@ -40,7 +41,7 @@ struct PhotoSelectionView: View {
                 .disabled(viewModel.selectedPhotos.isEmpty)
             )
         }
-        .confirmationDialog("Add Photo", isPresented: $viewModel.showingMediaOptions) {
+        .confirmationDialog("Add Photo", isPresented: $showingMediaOptions) {
             Button("Choose from Library") {
                 viewModel.showingImagePicker = true
             }

@@ -41,5 +41,15 @@ struct PhotoSelectionView: View {
         .sheet(isPresented: $viewModel.showingImagePicker) {
             ImagePicker(selectedImage: $viewModel.currentImage)
         }
+        .sheet(isPresented: $viewModel.showingCamera) {
+            CameraImagePicker(selectedImage: Binding(
+                get: { nil },
+                set: { image in
+                    if let image = image {
+                        viewModel.addPhoto(image)
+                    }
+                }
+            ))
+        }
     }
 }

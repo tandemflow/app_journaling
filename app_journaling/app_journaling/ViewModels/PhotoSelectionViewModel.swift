@@ -4,6 +4,7 @@ import SwiftUI
 class PhotoSelectionViewModel: ObservableObject {
     @Published var selectedPhotos: [PhotoItem] = []
     @Published var showingImagePicker = false
+    @Published var showingCamera = false
     @Published var currentImage: UIImage? {
         didSet {
             if let image = currentImage {
@@ -16,6 +17,11 @@ class PhotoSelectionViewModel: ObservableObject {
     /// Shows the image picker
     func showImagePicker() {
         showingImagePicker = true
+    }
+    
+    /// Shows the camera
+    func showCamera() {
+        showingCamera = true
     }
     
     /// Adds a photo to the queue

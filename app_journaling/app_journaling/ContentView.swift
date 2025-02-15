@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject private var viewModel = PhotoSelectionViewModel()
     @State private var showingMediaOptions = false
     @State private var showingPhotoPicker = false
+    @State private var showingCamera = false
     @State private var selectedItems: [PhotosPickerItem] = []
     @State private var showingPhotoSelection = false
     
@@ -39,7 +40,7 @@ struct ContentView: View {
                         showingPhotoPicker = true
                     }
                     Button("Take Photo") {
-                        // Camera will be implemented later
+                        showingCamera = true
                     }
                 }
                 .photosPicker(isPresented: $showingPhotoPicker,
@@ -60,6 +61,16 @@ struct ContentView: View {
                     }
                     selectedItems = []
                 }
+            }
+            .sheet(isPresented: $showingCamera) {
+                CameraImagePicker(selectedImage: Binding(
+                    get: { nil },
+                    set: { image in
+                        if let image = image {
+                            viewModel.addPhoto(image)
+                        }
+                    }
+                ))
             }
         }
     }

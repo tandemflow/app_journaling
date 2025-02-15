@@ -14,13 +14,11 @@ class PhotoSelectionViewModel: ObservableObject {
     }
     @Published var selectedItems: [PhotosPickerItem] = [] {
         didSet {
-            Task {
+            Task { @MainActor in
                 for item in selectedItems {
                     if let data = try? await item.loadTransferable(type: Data.self),
                        let image = UIImage(data: data) {
-                        await MainActor.run {
-                            addPhoto(image)
-                        }
+                        addPhoto(image)
                     }
                 }
                 selectedItems = []

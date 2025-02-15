@@ -19,7 +19,7 @@ struct PhotoSelectionView: View {
                         }
                         
                         AddMoreButton(action: {
-                            showingMediaOptions = true
+                            viewModel.showingMediaOptions = true
                         })
                     }
                     .padding()
@@ -41,7 +41,7 @@ struct PhotoSelectionView: View {
                 .disabled(viewModel.selectedPhotos.isEmpty)
             )
         }
-        .confirmationDialog("Add Photo", isPresented: $showingMediaOptions) {
+        .confirmationDialog("Add Photo", isPresented: $viewModel.showingMediaOptions) {
             Button("Choose from Library") {
                 viewModel.showingImagePicker = true
             }

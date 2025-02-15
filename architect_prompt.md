@@ -126,9 +126,6 @@ Develop an iOS application that allows users to:
     - app_journalingTests.swift
 - architect_prompt.md
 
-### Ending files
-- Aider will list new files as they are added here.
-
 ## 4. Low-Level Goals
 > Ordered from first to last
 
@@ -170,3 +167,41 @@ What are details you want to add to ensure consistency?
 - Ensure compatibility with iCloud for cloud sync.
 - Implement file encryption for user privacy.
 ```
+
+---
+
+## 5. **Photo Selection Menu Guidelines**
+
+The **Photo Selection Menu** allows users to add images either by capturing a new photo or selecting one from their library. It provides a streamlined experience for managing images before processing them with OCR.
+
+### **1. Image Selection and Queue Management**
+- Users can add images using:
+  - **Take Photo** – Opens the camera to capture a new image.
+  - **Choose from Library** – Opens the device's photo library.
+- The selected images are displayed in a **horizontal scrollable queue** for easy navigation.
+- **Image Sizing**:
+  - Photos should be **large enough for recognition** but **not full-screen**, ensuring a clear, compact layout.
+- The bottom of the menu displays a **photo count indicator** (e.g., *"2 Photos Selected"*) for quick reference.
+
+### **2. Menu Options and Actions**
+#### **Top Menu Bar**
+- **Top Left: "Cancel"**  
+  - Cancels the action and **clears all temporary selections**.
+  - Resets the function so that future selections start fresh.
+- **Top Right: "Convert"**  
+  - Initiates **OCR processing** using Apple's Vision framework.
+  - Calls functions from `OCRManager.swift`.
+
+#### **Image Management**
+- **Trash Icon (Bottom of Each Photo)**  
+  - Allows users to delete specific photos from the queue.
+- **Three-Dot Icon (Top of Each Photo)**  
+  - Enables users to **reorder** photos in the queue.
+  - Critical for ensuring the correct sequence before OCR processing.
+
+#### **Adding More Photos**
+- **"Add More" Button (Far Right of Scrollable Queue)**  
+  - Styled similarly to the centered button on the home screen.
+  - Opens the menu again, allowing users to select additional photos from:
+    - *Take Photo*
+    - *Choose from Library*

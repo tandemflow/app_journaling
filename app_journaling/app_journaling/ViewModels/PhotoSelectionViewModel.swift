@@ -1,4 +1,5 @@
 import SwiftUI
+import PhotosUI
 
 /// Manages the state and business logic for photo selection
 class PhotoSelectionViewModel: ObservableObject {

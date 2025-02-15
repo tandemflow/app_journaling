@@ -67,7 +67,9 @@ struct ContentView: View {
                     get: { nil },
                     set: { image in
                         if let image = image {
-                            viewModel.addPhoto(image)
+                            Task { @MainActor in
+                                viewModel.addPhoto(image)
+                            }
                         }
                     }
                 ))

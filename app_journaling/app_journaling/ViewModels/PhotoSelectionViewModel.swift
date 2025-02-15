@@ -5,7 +5,13 @@ import PhotosUI
 class PhotoSelectionViewModel: ObservableObject {
     @Published var selectedPhotos: [PhotoItem] = []
     @Published var showingImagePicker = false
-    @Published var showingCamera = false
+    @Published var showingCamera = false {
+        didSet {
+            Task { @MainActor in
+                showingCamera = false
+            }
+        }
+    }
     @Published var selectedItems: [PhotosPickerItem] = [] {
         didSet {
             Task {

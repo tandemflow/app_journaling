@@ -5,11 +5,18 @@ class PhotoSelectionViewModel: ObservableObject {
     @Published var selectedPhotos: [PhotoItem] = []
     @Published var showingImagePicker = false
     @Published var showingCamera = false
-    @Published var currentImage: UIImage? {
+    @Published var selectedItems: [PhotosPickerItem] = [] {
         didSet {
-            if let image = currentImage {
-                addPhoto(image)
-                currentImage = nil
+            Task {
+                for item in selectedItems {
+                    if let data = try? await item.loadTransferable(type: Data.self),
+                       let image = UIImage(data: data) {
+                        await MainActor.run {
+                            addPhoto(image)
+                        }
+                    }
+                }
+                selectedItems = []
             }
         }
     }

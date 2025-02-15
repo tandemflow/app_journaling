@@ -38,9 +38,12 @@ struct PhotoSelectionView: View {
                 .disabled(viewModel.selectedPhotos.isEmpty)
             )
         }
-        .sheet(isPresented: $viewModel.showingImagePicker) {
-            ImagePicker(selectedImage: $viewModel.currentImage)
-        }
+        .photosPicker(
+            isPresented: $viewModel.showingImagePicker,
+            selection: $viewModel.selectedItems,
+            matching: .images,
+            photoLibrary: .shared()
+        )
         .sheet(isPresented: $viewModel.showingCamera) {
             CameraImagePicker(selectedImage: Binding(
                 get: { nil },

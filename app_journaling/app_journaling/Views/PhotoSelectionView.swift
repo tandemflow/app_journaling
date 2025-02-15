@@ -17,7 +17,9 @@ struct PhotoSelectionView: View {
                             }
                         }
                         
-                        AddMoreButton(action: viewModel.showImagePicker)
+                        AddMoreButton(action: {
+                            viewModel.showingMediaOptions = true
+                        })
                     }
                     .padding()
                 }
@@ -37,6 +39,14 @@ struct PhotoSelectionView: View {
                 }
                 .disabled(viewModel.selectedPhotos.isEmpty)
             )
+        }
+        .confirmationDialog("Add Photo", isPresented: $viewModel.showingMediaOptions) {
+            Button("Choose from Library") {
+                viewModel.showingImagePicker = true
+            }
+            Button("Take Photo") {
+                viewModel.showingCamera = true
+            }
         }
         .photosPicker(
             isPresented: $viewModel.showingImagePicker,

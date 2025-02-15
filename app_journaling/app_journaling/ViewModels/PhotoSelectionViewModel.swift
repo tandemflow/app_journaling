@@ -4,6 +4,7 @@ import PhotosUI
 /// Manages the state and business logic for photo selection
 class PhotoSelectionViewModel: ObservableObject {
     @Published var selectedPhotos: [PhotoItem] = []
+    @Published var showingMediaOptions = false
     @Published var showingImagePicker = false
     @Published var showingCamera = false {
         didSet {

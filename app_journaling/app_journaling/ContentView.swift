@@ -10,6 +10,7 @@ import PhotosUI
 
 struct ContentView: View {
     @State private var showingMediaOptions = false
+    @StateObject private var viewModel = PhotoSelectionViewModel()
     
     var body: some View {
         ZStack {
@@ -29,12 +30,22 @@ struct ContentView: View {
                     // Button padding ends here
                 .confirmationDialog("Add Photo", isPresented: $showingMediaOptions) {
                     Button("Choose from Library") {
-                        // Photo picker will be implemented later
+                        viewModel.showingImagePicker = true
                     }
                     Button("Take Photo") {
-                        // Camera will be implemented later
+                        viewModel.showingCamera = true
                     }
                 }
+                .photosPicker(
+                    isPresented: $viewModel.showingImagePicker,
+                    selection: $viewModel.selectedItems,
+                    matching: .images,
+                    photoLibrary: .shared()
+                )
+                .cameraPicker(
+                    isPresented: $viewModel.showingCamera,
+                    selection: $viewModel.capturedImage
+                )
             }
         }
     }

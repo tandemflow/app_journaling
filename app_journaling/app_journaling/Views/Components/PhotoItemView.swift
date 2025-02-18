@@ -32,7 +32,7 @@ struct PhotoItemView: View {
         .onDisappear {
             isDragging = false
         }
-        .onChange(of: photo.order) { _ in
+        .onChange(of: photo.order) { oldValue, newValue in
             isDragging = false
         }
     }

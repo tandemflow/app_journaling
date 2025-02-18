@@ -13,9 +13,9 @@ struct PhotoSelectionView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         ForEach(viewModel.selectedPhotos) { photo in
-                            PhotoItemView(photo: photo) {
+                            PhotoItemView(photo: photo, onDelete: {
                                 viewModel.removePhoto(photo)
-                            }
+                            }, viewModel: viewModel)
                         }
                         .onMove(perform: viewModel.movePhoto)
                         .onDrop(of: [.text], delegate: DropViewDelegate(items: viewModel.selectedPhotos, moveAction: viewModel.movePhoto))

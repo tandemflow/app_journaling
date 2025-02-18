@@ -8,7 +8,13 @@ class PhotoSelectionViewModel: ObservableObject {
     @Published var isDraggingToTrash: Bool = false
     @Published var isOverTrash: Bool = false
     @Published var draggingPhotoId: String?
-    @Published var showingMediaOptions = false
+    @Published var showingMediaOptions = false {
+        didSet {
+            Task { @MainActor in
+                showingMediaOptions = false
+            }
+        }
+    }
     @Published var showingImagePicker = false
     @Published var showingCamera = false
     @Published var capturedImage: UIImage? {

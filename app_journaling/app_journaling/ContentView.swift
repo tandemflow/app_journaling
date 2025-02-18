@@ -32,7 +32,12 @@ struct ContentView: View {
                 .background(Color.blue)
                 .clipShape(Circle())
                 .padding(.bottom, 30)
-                .confirmationDialog("Add Photo", isPresented: $showingMediaOptions) {
+                .confirmationDialog("Add Photo", isPresented: Binding(
+                    get: { viewModel.showingMediaOptions },
+                    set: { @MainActor newValue in
+                        viewModel.showingMediaOptions = newValue
+                    }
+                )) {
                     Button("Choose from Library") {
                         viewModel.showingImagePicker = true
                     }

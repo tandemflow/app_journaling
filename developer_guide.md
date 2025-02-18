@@ -21,19 +21,7 @@ Application for doing data analysis on Wikipedia articles.
   - **Documentation**: Google-style docstrings
 
 ## Project Architecture
-- .aider.tags.cache.v3
-- app_journaling  
-  - app_journaling
-  - app_journaling.xcodeproj
-  - app_journalingTests
-  - app_journalingUITests
-- .aider.chat.history.md
-- .aider.input.history
-- .env
-- .gitignore
-- architect_prompt.md
-- developer_guide.md
-- README.md
+-
 
 ## Coding Style Guide
 - **Formatting**:

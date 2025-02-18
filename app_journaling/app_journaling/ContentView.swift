@@ -22,7 +22,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Button(action: {
-                    showingMediaOptions = true
+                    viewModel.showingMediaOptions = true
                 }) {
                     Image(systemName: "plus")
                         .font(.title)

@@ -62,18 +62,10 @@ struct ContentView: View {
                     selectedItems = []
                 }
             }
-            .sheet(isPresented: $showingCamera) {
-                CameraImagePicker(selectedImage: Binding(
-                    get: { nil },
-                    set: { image in
-                        if let image = image {
-                            Task { @MainActor in
-                                viewModel.addPhoto(image)
-                            }
-                        }
-                    }
-                ))
-            }
+            .cameraPicker(
+                isPresented: $showingCamera,
+                selection: $viewModel.capturedImage
+            )
         }
     }
 }

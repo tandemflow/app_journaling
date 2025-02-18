@@ -29,13 +29,23 @@ struct PhotoSelectionView: View {
                 
                 Spacer()
                 
-                VStack(spacing: 8) {
-                    // Photo Count Indicator
-                    Text("\(viewModel.selectedPhotos.count) Photos Selected")
-                        .foregroundColor(.secondary)
-                    
-                    // Show Trash button only when photos are present
-                    if !viewModel.selectedPhotos.isEmpty {
+                // Center Plus/Trash Button
+                ZStack {
+                    if viewModel.selectedPhotos.isEmpty {
+                        Button(action: {
+                            viewModel.showingMediaOptions = true
+                        }) {
+                            VStack {
+                                Image(systemName: "plus.circle.fill")
+                                    .font(.system(size: 30))
+                                Text("Add Photos")
+                                    .font(.caption)
+                            }
+                            .frame(width: 120, height: 160)
+                            .background(Color.secondary.opacity(0.2))
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                        }
+                    } else {
                         TrashButton(
                             action: {
                                 if let draggingId = viewModel.draggingPhotoId,
@@ -49,7 +59,11 @@ struct PhotoSelectionView: View {
                         )
                     }
                 }
-                .padding(.bottom)
+                
+                // Photo Count Indicator
+                Text("\(viewModel.selectedPhotos.count) Photos Selected")
+                    .foregroundColor(.secondary)
+                    .padding(.bottom)
             }
             .navigationBarItems(
                 leading: Button("Cancel") {

@@ -98,3 +98,4 @@ struct PhotoSelectionView: View {
         )
     }
 }
+}

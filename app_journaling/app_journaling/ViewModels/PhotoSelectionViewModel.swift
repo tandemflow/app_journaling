@@ -23,7 +23,7 @@ class PhotoSelectionViewModel: ObservableObject {
     }
     @Published var selectedItems: [PhotosPickerItem] = [] {
         didSet {
-            Task { @MainActor in
+            Task {
                 let newImages = try? await withThrowingTaskGroup(of: UIImage?.self) { group in
                     for item in selectedItems {
                         group.addTask {
@@ -52,11 +52,13 @@ class PhotoSelectionViewModel: ObservableObject {
                 }
                 
                 if let newImages = newImages {
-                    for image in newImages {
-                        addPhoto(image)
+                    await MainActor.run {
+                        for image in newImages {
+                            addPhoto(image)
+                        }
+                        selectedItems = []
                     }
                 }
-                selectedItems = []
             }
         }
     }

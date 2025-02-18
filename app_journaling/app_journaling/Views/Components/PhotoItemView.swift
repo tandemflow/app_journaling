@@ -27,6 +27,7 @@ struct PhotoItemView: View {
         }
         .onDrag {
             isDragging = true
+            viewModel.draggingPhotoId = photo.id.uuidString
             return NSItemProvider(object: photo.id.uuidString as NSString)
         }
         .opacity(isDragging ? 0.7 : 1.0)

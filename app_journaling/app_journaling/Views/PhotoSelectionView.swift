@@ -27,7 +27,7 @@ struct PhotoSelectionView: View {
                         } else {
                             TrashButton(
                                 action: {
-                                    if let draggingId = $viewModel.draggingPhotoId,
+                                    if let draggingId = viewModel.draggingPhotoId,
                                        let photo = viewModel.selectedPhotos.first(where: { $0.id.uuidString == draggingId }) {
                                         withAnimation(.easeInOut(duration: 0.3)) {
                                             viewModel.removePhoto(photo)

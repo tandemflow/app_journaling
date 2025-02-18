@@ -55,17 +55,9 @@ struct PhotoSelectionView: View {
             matching: .images,
             photoLibrary: .shared()
         )
-        .sheet(isPresented: $viewModel.showingCamera) {
-            CameraImagePicker(selectedImage: Binding(
-                get: { nil },
-                set: { image in
-                    if let image = image {
-                        Task { @MainActor in
-                            viewModel.addPhoto(image)
-                        }
-                    }
-                }
-            ))
-        }
+        .cameraPicker(
+            isPresented: $viewModel.showingCamera,
+            selection: $viewModel.capturedImage
+        )
     }
 }

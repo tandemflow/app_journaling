@@ -2,13 +2,35 @@ import SwiftUI
 import UIKit
 
 struct ImagePicker: UIViewControllerRepresentable {
+    let sourceType: UIImagePickerController.SourceType
     @Binding var selectedImage: UIImage?
     @Environment(\.presentationMode) private var presentationMode
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
-        picker.sourceType = .photoLibrary
+        picker.sourceType = sourceType
+        
+        if sourceType == .camera {
+            // Force basic auto configuration
+            if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
+                do {
+                    try device.lockForConfiguration()
+                    device.activeFormat = device.formats.first { format in
+                        !format.isVideoHDRSupported
+                    } ?? device.activeFormat
+                    device.unlockForConfiguration()
+                } catch {
+                    print("Failed to configure camera: \(error)")
+                }
+            }
+            
+            picker.cameraCaptureMode = .photo
+            picker.cameraDevice = .rear
+            picker.videoQuality = .typeMedium
+            picker.allowsEditing = false
+        }
+        
         return picker
     }
     

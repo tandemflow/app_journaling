@@ -6,10 +6,15 @@ class PhotoSelectionViewModel: ObservableObject {
     @Published var selectedPhotos: [PhotoItem] = []
     @Published var showingMediaOptions = false
     @Published var showingImagePicker = false
-    @Published var showingCamera = false {
+    @Published var showingCamera = false
+    @Published var capturedImage: UIImage? {
         didSet {
-            Task { @MainActor in
-                showingCamera = false
+            if let image = capturedImage {
+                Task { @MainActor in
+                    addPhoto(image)
+                    capturedImage = nil
+                    showingCamera = false
+                }
             }
         }
     }

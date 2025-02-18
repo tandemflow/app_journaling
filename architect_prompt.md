@@ -192,14 +192,37 @@ The **Photo Selection Menu** allows users to add images either by capturing a ne
   - Initiates **OCR processing** using Apple's Vision framework.
   - Calls functions from `OCRManager.swift`.
 
-#### **Image Management**
-- **Trash Icon (Bottom of Each Photo)**  
-  - Allows users to delete specific photos from the queue.
-- **Three-Dot Icon (Top of Each Photo)**  
-  - Enables users to **reorder** photos in the queue.
-  - Critical for ensuring the correct sequence before OCR processing.
+# Image Management
 
-#### **Adding More Photos**
+### 1. Removing Photos from Queue  
+- Users can **delete individual photos** from the queue before OCR processing.  
+- Once a photo has been **added** from either the Camera or Photo Library, the **centered "plus" button** at the bottom of the screen should be **hidden** to avoid redundancy.  
+- The "plus" button should be **replaced with a Trash Can icon**, positioned in the same location.  
+
+#### Drag-to-Delete Functionality  
+- Users can **drag** photos from the queue to the **Trash Can icon** to remove them.  
+- Once a photo is successfully deleted, a subtle **fade-out animation** should confirm the action.  
+- If the queue becomes **empty**, the Trash Can icon should **disappear**, and the "plus" button should reappear.  
+
+---
+
+### 2. Organizing Photos in the Queue  
+- Users should be able to **reorder** photos before processing them with OCR.  
+
+#### Drag-and-Drop Sorting  
+- Users can **press and hold** a photo for **a short interval (e.g., 0.5 seconds)** to enable reordering mode.  
+- Once in reordering mode:  
+  - The selected photo becomes **slightly elevated** with a **shadow effect** to indicate movement.  
+  - Retain a rounded border effect when dragging the image.
+  - Other photos in the queue should be **responsive**, smoothly shifting to accommodate the dragged photo.  
+  - Releasing the photo should **snap** it into its new position with a **gentle animation**.  
+  - Image should return to its original size once released.
+  - Monitor the Image size and verify that the Image has been returned to its initial state before moving on.
+- This feature is **critical for ensuring the correct sequence before OCR processing**, especially for documents with multiple pages.
+
+---
+
+### 3. Adding More Photos  
 - **"Add More" Button (Far Right of Scrollable Queue)**  
   - Styled similarly to the centered button on the home screen.
   - Opens the menu again, allowing users to select additional photos from:

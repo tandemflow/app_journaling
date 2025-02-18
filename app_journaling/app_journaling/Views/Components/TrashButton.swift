@@ -17,8 +17,8 @@ struct TrashButton: View {
         .onDrop(of: [.text], isTargeted: $isTargeted) { providers in
             guard let provider = providers.first else { return false }
             provider.loadObject(ofClass: String.self) { string, error in
-                guard let idString = string as? String,
-                      let id = UUID(uuidString: idString) else { return }
+                guard let idString = string,
+                      let _ = UUID(uuidString: idString) else { return }
                 action()
             }
             return true

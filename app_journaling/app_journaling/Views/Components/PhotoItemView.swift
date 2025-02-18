@@ -49,9 +49,15 @@ struct DropViewDelegate: DropDelegate {
             return
         }
         
-        let toIndex = items.index(items.startIndex, offsetBy: info.distance)
+        let location = info.location
+        let toIndex = items.count - 1
+        
         if fromIndex != toIndex {
             moveAction(IndexSet(integer: fromIndex), toIndex)
         }
+    }
+    
+    func dropUpdated(info: DropInfo) -> DropProposal? {
+        return DropProposal(operation: .move)
     }
 }

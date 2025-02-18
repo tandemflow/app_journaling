@@ -15,7 +15,12 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack {
+                if !viewModel.selectedPhotos.isEmpty {
+                    PhotoSelectionView(viewModel: viewModel)
+                }
+                
                 Spacer()
+                
                 Button(action: {
                     showingMediaOptions = true
                 }) {
@@ -27,7 +32,6 @@ struct ContentView: View {
                 .background(Color.blue)
                 .clipShape(Circle())
                 .padding(.bottom, 30)
-                    // Button padding ends here
                 .confirmationDialog("Add Photo", isPresented: $showingMediaOptions) {
                     Button("Choose from Library") {
                         viewModel.showingImagePicker = true

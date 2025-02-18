@@ -47,7 +47,12 @@ struct ContentView: View {
                             viewModel.showingImagePicker = newValue
                         }
                     ),
-                    selection: $viewModel.selectedItems,
+                    selection: Binding(
+                        get: { viewModel.selectedItems },
+                        set: { @MainActor newValue in
+                            viewModel.selectedItems = newValue
+                        }
+                    ),
                     matching: .images,
                     photoLibrary: .shared()
                 )
@@ -58,7 +63,12 @@ struct ContentView: View {
                             viewModel.showingCamera = newValue
                         }
                     ),
-                    selection: $viewModel.capturedImage
+                    selection: Binding(
+                        get: { viewModel.capturedImage },
+                        set: { @MainActor newValue in
+                            viewModel.capturedImage = newValue
+                        }
+                    )
                 )
             }
         }

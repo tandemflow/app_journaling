@@ -16,7 +16,11 @@ struct PhotoSelectionView: View {
                             PhotoItemView(photo: photo) {
                                 viewModel.removePhoto(photo)
                             }
+                            .onDrag {
+                                NSItemProvider(object: photo.id.uuidString as NSString)
+                            }
                         }
+                        .onMove(perform: viewModel.movePhoto)
                         
                         AddMoreButton(action: {
                             viewModel.showingMediaOptions = true

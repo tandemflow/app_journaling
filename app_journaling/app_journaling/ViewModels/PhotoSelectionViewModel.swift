@@ -81,6 +81,20 @@ class PhotoSelectionViewModel: ObservableObject {
         selectedPhotos.removeAll { $0.id == photo.id }
     }
     
+    /// Moves a photo from one position to another
+    /// - Parameters:
+    ///   - fromOffsets: Source indices
+    ///   - toOffset: Destination index
+    func movePhoto(fromOffsets: IndexSet, toOffset: Int) {
+        selectedPhotos.move(fromOffsets: fromOffsets, toOffset: toOffset)
+        
+        // Update order after move
+        for (index, var photo) in selectedPhotos.enumerated() {
+            photo.order = index
+            selectedPhotos[index] = photo
+        }
+    }
+    
     /// Clears all selected photos
     func clearSelection() {
         selectedPhotos.removeAll()

@@ -4,6 +4,7 @@ import SwiftUI
 struct PhotoItemView: View {
     let photo: PhotoItem
     let onDelete: () -> Void
+    @ObservedObject var viewModel: PhotoSelectionViewModel
     @State private var isDragging = false
     
     var body: some View {
@@ -13,9 +14,9 @@ struct PhotoItemView: View {
                 .scaledToFill()
                 .frame(width: 120, height: 160)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-                .shadow(radius: isDragging ? 10 : 0)
-                .scaleEffect(isDragging ? 1.05 : 1.0)
-                .animation(.easeInOut(duration: 0.2), value: isDragging)
+                .shadow(radius: isDragging ? 15 : 0, x: 0, y: isDragging ? 8 : 0)
+                .scaleEffect(isDragging ? 1.08 : 1.0)
+                .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isDragging)
             
             Menu {
                 Button("Delete", role: .destructive, action: onDelete)

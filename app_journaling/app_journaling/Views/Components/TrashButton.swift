@@ -14,5 +14,14 @@ struct TrashButton: View {
                 .background(Color.secondary.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
         }
+        .onDrop(of: [.text], isTargeted: $isTargeted) { providers in
+            guard let provider = providers.first else { return false }
+            provider.loadObject(ofClass: String.self) { string, error in
+                guard let idString = string as? String,
+                      let id = UUID(uuidString: idString) else { return }
+                action()
+            }
+            return true
+        }
     }
 }

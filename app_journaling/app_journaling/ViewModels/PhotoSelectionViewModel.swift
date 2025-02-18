@@ -5,6 +5,7 @@ import PhotosUI
 class PhotoSelectionViewModel: ObservableObject {
     @Published var selectedPhotos: [PhotoItem] = []
     @Published var isDraggingToTrash: Bool = false
+    @Published var isOverTrash: Bool = false
     @Published var showingMediaOptions = false
     @Published var showingImagePicker = false
     @Published var showingCamera = false

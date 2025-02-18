@@ -27,9 +27,14 @@ struct PhotoSelectionView: View {
                         } else {
                             TrashButton(
                                 action: {
-                                    // Will be implemented in phase 2
+                                    if let draggingId = viewModel.draggingPhotoId,
+                                       let photo = viewModel.selectedPhotos.first(where: { $0.id.uuidString == draggingId }) {
+                                        withAnimation(.easeInOut(duration: 0.3)) {
+                                            viewModel.removePhoto(photo)
+                                        }
+                                    }
                                 },
-                                isTargeted: .constant(false)
+                                isTargeted: $viewModel.isOverTrash
                             )
                         }
                     }

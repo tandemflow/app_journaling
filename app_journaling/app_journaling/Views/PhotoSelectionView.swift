@@ -20,9 +20,18 @@ struct PhotoSelectionView: View {
                         .onMove(perform: viewModel.movePhoto)
                         .onDrop(of: [.text], delegate: DropViewDelegate(items: viewModel.selectedPhotos, moveAction: viewModel.movePhoto))
                         
-                        AddMoreButton(action: {
-                            viewModel.showingMediaOptions = true
-                        })
+                        if viewModel.selectedPhotos.isEmpty {
+                            AddMoreButton(action: {
+                                viewModel.showingMediaOptions = true
+                            })
+                        } else {
+                            TrashButton(
+                                action: {
+                                    // Will be implemented in phase 2
+                                },
+                                isTargeted: .constant(false)
+                            )
+                        }
                     }
                     .padding()
                 }

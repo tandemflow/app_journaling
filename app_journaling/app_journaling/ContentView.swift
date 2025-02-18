@@ -32,20 +32,21 @@ struct ContentView: View {
                 .background(Color.blue)
                 .clipShape(Circle())
                 .padding(.bottom, 30)
-                .confirmationDialog("Add Photo", isPresented: Binding(
-                    get: { viewModel.showingMediaOptions },
-                    set: { @MainActor newValue in
-                        viewModel.showingMediaOptions = newValue
-                    }
-                )) {
-                    Button("Choose from Library") {
-                        viewModel.showingImagePicker = true
-                    }
-                    Button("Take Photo") {
-                        viewModel.showingCamera = true
-                    }
+            }
+            .confirmationDialog("Add Photo", isPresented: Binding(
+                get: { viewModel.showingMediaOptions },
+                set: { @MainActor newValue in
+                    viewModel.showingMediaOptions = newValue
                 }
-                .photosPicker(
+            )) {
+                Button("Choose from Library") {
+                    viewModel.showingImagePicker = true
+                }
+                Button("Take Photo") {
+                    viewModel.showingCamera = true
+                }
+            }
+            .photosPicker(
                     isPresented: Binding(
                         get: { viewModel.showingImagePicker },
                         set: { @MainActor newValue in

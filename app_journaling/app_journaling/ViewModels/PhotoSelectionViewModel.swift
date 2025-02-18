@@ -21,9 +21,35 @@ class PhotoSelectionViewModel: ObservableObject {
     @Published var selectedItems: [PhotosPickerItem] = [] {
         didSet {
             Task { @MainActor in
-                for item in selectedItems {
-                    if let data = try? await item.loadTransferable(type: Data.self),
-                       let image = UIImage(data: data) {
+                let newImages = try? await withThrowingTaskGroup(of: UIImage?.self) { group in
+                    for item in selectedItems {
+                        group.addTask {
+                            if let data = try? await item.loadTransferable(type: Data.self),
+                               let image = UIImage(data: data) {
+                                return image
+                            }
+                            return nil
+                        }
+                    }
+                    
+                    var images: [UIImage] = []
+                    for try await image in group {
+                        if let image = image {
+                            // Check if image is already in selectedPhotos
+                            let imageData = image.pngData()
+                            let isDuplicate = selectedPhotos.contains { photo in
+                                photo.image.pngData() == imageData
+                            }
+                            if !isDuplicate {
+                                images.append(image)
+                            }
+                        }
+                    }
+                    return images
+                }
+                
+                if let newImages = newImages {
+                    for image in newImages {
                         addPhoto(image)
                     }
                 }

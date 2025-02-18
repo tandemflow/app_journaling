@@ -2,6 +2,7 @@ import SwiftUI
 import PhotosUI
 
 /// Manages the state and business logic for photo selection
+@MainActor
 class PhotoSelectionViewModel: ObservableObject {
     @Published var selectedPhotos: [PhotoItem] = []
     @Published var isDraggingToTrash: Bool = false

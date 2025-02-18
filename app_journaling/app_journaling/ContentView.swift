@@ -41,13 +41,23 @@ struct ContentView: View {
                     }
                 }
                 .photosPicker(
-                    isPresented: $viewModel.showingImagePicker,
+                    isPresented: Binding(
+                        get: { viewModel.showingImagePicker },
+                        set: { @MainActor newValue in
+                            viewModel.showingImagePicker = newValue
+                        }
+                    ),
                     selection: $viewModel.selectedItems,
                     matching: .images,
                     photoLibrary: .shared()
                 )
                 .cameraPicker(
-                    isPresented: $viewModel.showingCamera,
+                    isPresented: Binding(
+                        get: { viewModel.showingCamera },
+                        set: { @MainActor newValue in
+                            viewModel.showingCamera = newValue
+                        }
+                    ),
                     selection: $viewModel.capturedImage
                 )
             }

@@ -7,8 +7,10 @@ struct PhotoSelectionView: View {
     @State private var showingMediaOptions = false
     
     var body: some View {
+        GeometryReader { geometry in
         NavigationView {
-            VStack {
+            VStack(spacing: 0) {
+                Spacer()
                 // Photo Queue
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {

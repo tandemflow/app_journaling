@@ -24,17 +24,33 @@ struct ContentView: View {
                 }
                 
                 Spacer()
-                Button(action: {
-                    showingMediaOptions = true
-                }) {
-                    Image(systemName: "plus")
-                        .font(.title)
-                        .foregroundColor(.white)
+                
+                // Show either plus button or trash button
+                if viewModel.selectedPhotos.isEmpty {
+                    Button(action: {
+                        showingMediaOptions = true
+                    }) {
+                        Image(systemName: "plus")
+                            .font(.title)
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 60, height: 60)
+                    .background(Color.blue)
+                    .clipShape(Circle())
+                    .padding(.bottom, 30)
+                } else {
+                    Button(action: {
+                        viewModel.clearSelection()
+                    }) {
+                        Image(systemName: "trash.circle")
+                            .font(.title)
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 60, height: 60)
+                    .background(Color.red)
+                    .clipShape(Circle())
+                    .padding(.bottom, 30)
                 }
-                .frame(width: 60, height: 60)
-                .background(Color.blue)
-                .clipShape(Circle())
-                .padding(.bottom, 30)
                 .confirmationDialog("Add Photo", isPresented: $showingMediaOptions) {
                     Button("Choose from Library") {
                         showingPhotoPicker = true

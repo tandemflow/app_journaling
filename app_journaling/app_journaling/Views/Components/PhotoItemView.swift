@@ -29,7 +29,10 @@ struct PhotoItemView: View {
             isDragging = true
             return NSItemProvider(object: photo.id.uuidString as NSString)
         }
-        .onAppear {
+        .onDisappear {
+            isDragging = false
+        }
+        .onChange(of: photo.order) { _ in
             isDragging = false
         }
     }

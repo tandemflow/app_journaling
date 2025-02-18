@@ -18,13 +18,7 @@ struct PhotoItemView: View {
                 .scaleEffect(isDragging ? 1.08 : 1.0)
                 .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isDragging)
             
-            Menu {
-                Button("Delete", role: .destructive, action: onDelete)
-            } label: {
-                Image(systemName: "ellipsis.circle.fill")
-                    .foregroundColor(.white)
-                    .padding(4)
-            }
+            // Remove menu since delete is now handled by trash button
         }
         .onDrag {
             isDragging = true

@@ -20,31 +20,36 @@ struct PhotoSelectionView: View {
                         .onMove(perform: viewModel.movePhoto)
                         .onDrop(of: [.text], delegate: DropViewDelegate(items: viewModel.selectedPhotos, moveAction: viewModel.movePhoto))
                         
-                        if viewModel.selectedPhotos.isEmpty {
-                            AddMoreButton(action: {
-                                viewModel.showingMediaOptions = true
-                            })
-                        } else {
-                            TrashButton(
-                                action: {
-                                    if let draggingId = viewModel.draggingPhotoId,
-                                       let photo = viewModel.selectedPhotos.first(where: { $0.id.uuidString == draggingId }) {
-                                        withAnimation(.easeInOut(duration: 0.3)) {
-                                            viewModel.removePhoto(photo)
-                                        }
-                                    }
-                                },
-                                isTargeted: $viewModel.isOverTrash
-                            )
-                        }
+                        AddMoreButton(action: {
+                            viewModel.showingMediaOptions = true
+                        })
                     }
                     .padding()
                 }
                 
-                // Photo Count Indicator
-                Text("\(viewModel.selectedPhotos.count) Photos Selected")
-                    .foregroundColor(.secondary)
-                    .padding(.bottom)
+                Spacer()
+                
+                VStack(spacing: 8) {
+                    // Photo Count Indicator
+                    Text("\(viewModel.selectedPhotos.count) Photos Selected")
+                        .foregroundColor(.secondary)
+                    
+                    // Show Trash button only when photos are present
+                    if !viewModel.selectedPhotos.isEmpty {
+                        TrashButton(
+                            action: {
+                                if let draggingId = viewModel.draggingPhotoId,
+                                   let photo = viewModel.selectedPhotos.first(where: { $0.id.uuidString == draggingId }) {
+                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                        viewModel.removePhoto(photo)
+                                    }
+                                }
+                            },
+                            isTargeted: $viewModel.isOverTrash
+                        )
+                    }
+                }
+                .padding(.bottom)
             }
             .navigationBarItems(
                 leading: Button("Cancel") {

@@ -49,7 +49,7 @@ struct DropViewDelegate: DropDelegate {
             return
         }
         
-        let location = info.location
+        _ = info.location
         let toIndex = items.count - 1
         
         if fromIndex != toIndex {
